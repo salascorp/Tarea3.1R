@@ -1,0 +1,97 @@
+---
+title: "Tarea3_Oscar_Salas"
+author: "Oscar Salas"
+date: "7 de julio de 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+**1. Utilizando los paquetes devtools, usethis, packrat y el dataset Datos Churn.csv cree un proyecto de RStudio y realice los siguientes ejercicios:**
+
+
+**a) Cree la estructura de carpetas para su proyecto y documente cuál es el objetivo de cada una de las carpetas.**
+
+
+```{1}
+install.packages("usethis")
+library(usethis)
+create_project("D:/perfil/Documents/GitHub/Tarea3.1R/ProyectoChurn")
+
+use_directory("R")
+use_directory("R/preparation")
+use_directory("R/processing")
+use_directory("R/modeling")
+use_directory("test")
+use_directory("data")
+use_directory("reports")
+
+```
+Objetivo de las carpetas
+
+**R/Preparation:** Almacenar el codigo de lectura de datos
+
+**R/processing:** Almacenar el codigo para la realizacion de algunas trasnformaciones de variables y limpieza
+
+**R/modeling:** Almacenar el codigo de la construccion del modelo
+
+**Test:** Validar la existencia de NA
+
+**data**: Copiar los resultados obtenidos para evitar repetir el proceso cuando vaya a construir el reporte
+
+**Reports**: Almacenar el archivo de reporte Rmarkdown
+
+
+b) Respetando la estructura de carpetas seleccionada realice un anáisis exploratorio que cuente como mínimo con las siguientes etapas:
+
+1) Lectura de datos (csv o xlsx).
+ok
+2) Transformación y limpieza de los datos.
+ok
+3) Analisis exploratorio de los datos.
+ok
+4) Reporte de los resultados utilizando Rmarkdown.
+
+```{r b4}
+
+Datos_churn_limpioTransformado <- read.csv("D:/perfil/Documents/GitHub/Tarea3.1R/ProyectoChurn/data/Datos_churn_limpioTransformado.csv")
+
+summary(Datos_churn_limpioTransformado)
+
+
+Conf3x2 = matrix(c(1:6), nrow=2, byrow=TRUE)
+layout(Conf3x2)
+
+
+  pie(table(Datos_churn_limpioTransformado$Genero),main="Genero") # Scatter plot.
+
+  pie(table(Datos_churn_limpioTransformado$Pais),main="Pais") # Diagrama de cajas y bigotes o boxplot.
+
+  boxplot(Datos_churn_limpioTransformado$SalarioEstimado,main="Boxplot Salario Estimado") # Diagrama de cajas y bigotes o boxplot en función de una variable con dos niveles.
+
+  boxplot(Datos_churn_limpioTransformado$ScoringCrediticio,main="Boxplot Scoring")
+
+  hist(Datos_churn_limpioTransformado$ScoringCrediticio, nclass=10, main="Histograma Scoring")
+
+  hist(Datos_churn_limpioTransformado$Edad, nclass=10, main="Histograma Edad") # Histograma.
+
+
+
+```
+
+    
+c) Publique su proyecto en Github y adjunte el enlace del repositorio público creado para el proyecto.
+
+<https://github.com/salascorp/Tarea3.1R>
+
+d) Empaquete su proyecto con la funciÃÂ³n bundle del paquete packrat y adjunte el archivo generado.
+
+
+```{r cars}
+summary(iris)
+```
+
+
