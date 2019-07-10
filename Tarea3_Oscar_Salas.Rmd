@@ -87,7 +87,9 @@ c) Publique su proyecto en Github y adjunte el enlace del repositorio público c
 
 <https://github.com/salascorp/Tarea3.1R>
 
-d) Empaquete su proyecto con la funciÃÂ³n bundle del paquete packrat y adjunte el archivo generado.
+d) Empaquete su proyecto con la función bundle del paquete packrat y adjunte el archivo generado.
+
+Se anexa en la tarea.
 
 
 ```{r cars}
